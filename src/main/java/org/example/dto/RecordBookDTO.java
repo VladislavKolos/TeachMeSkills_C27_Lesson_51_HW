@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.dto;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -7,26 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "record_book")
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecordBook {
-
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class RecordBookDTO {
     private int id;
 
-    @Column(name = "rating")
     @Min(value = 10)
     @Max(value = 100)
     private int rating;
-
-    @OneToOne(mappedBy = "recordBook")
-    private Student student;
 }
